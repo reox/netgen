@@ -671,7 +671,7 @@ namespace netgen
     /// Calculates Volume of elemenet
     double Volume (const T_POINTS & points) const;
     ///
-    void Print (ostream & ost) const;
+    DLL_HEADER void Print (ostream & ost) const;
     ///
     int GetNFaces () const
     {
@@ -1132,7 +1132,7 @@ namespace netgen
     MeshingParameters (const MeshingParameters & mp2) = default;
     MeshingParameters (MeshingParameters && mp2) = default;
     ///
-    void Print (ostream & ost) const;
+    DLL_HEADER void Print (ostream & ost) const;
     /// 
     // void CopyFrom(const MeshingParameters & other);
 
@@ -1357,7 +1357,7 @@ namespace netgen
     /// remove secondorder
     void SetMaxPointNr (int maxpnum);
 
-    void Print (ostream & ost) const;
+    DLL_HEADER void Print (ostream & ost) const;
   };
 
 
