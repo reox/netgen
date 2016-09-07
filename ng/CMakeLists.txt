@@ -38,7 +38,8 @@ install(FILES
     ngtesting.tcl parameters.tcl variables.tcl csgeom.tcl stlgeom.tcl 
     occgeom.tcl acisgeom.tcl netgen.ocf
     DESTINATION ${ng_install_dir_bin} COMPONENT netgen)
-
-add_subdirectory(Togl2.1)
+if (USE_GUI)
+    add_subdirectory(Togl2.1)
+endif(USE_GUI)
 install(FILES drawing.tcl DESTINATION ${ng_install_dir_bin} COMPONENT netgen)
 
