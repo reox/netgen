@@ -39,6 +39,6 @@ install(FILES
     occgeom.tcl acisgeom.tcl netgen.ocf
     DESTINATION ${ng_install_dir_bin} COMPONENT netgen)
 
-add_subdirectory(Togl2.1)
+# add_subdirectory(Togl2.1)
 install(FILES drawing.tcl DESTINATION ${ng_install_dir_bin} COMPONENT netgen)
 
