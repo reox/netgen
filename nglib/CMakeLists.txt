@@ -24,7 +24,7 @@ add_library(nglib SHARED nglib.cpp ${nglib_objects})
 if(NOT WIN32)
       target_link_libraries( nglib mesh stl interface geom2d csg stl )
   if(USE_GUI)
-      target_link_libraries( stlvis geom2dvis visual csgvis )
+      target_link_libraries( nglib stlvis geom2dvis visual csgvis )
   endif(USE_GUI)
 endif(NOT WIN32)
 
