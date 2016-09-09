@@ -19,10 +19,10 @@ else(WIN32)
       /opt/opencascade/inc
     )
     find_library(OCC_LIBRARY TKernel
+      ${OCC_LIBRARY_FIND_PATH}
       /usr/lib
       /usr/local/lib
       /opt/opencascade/lib
-      ${OCC_LIBRARY_FIND_PATH}
     )
 endif(WIN32)
 
