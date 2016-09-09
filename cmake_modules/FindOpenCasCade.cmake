@@ -22,6 +22,7 @@ else(WIN32)
       /usr/lib
       /usr/local/lib
       /opt/opencascade/lib
+      ${OCC_LIBRARY_FIND_PATH}
     )
 endif(WIN32)
 
