@@ -1289,8 +1289,8 @@ namespace netgen
       std::cerr << "1.1" << std::endl;
       if (perfstepsstart <= MESHCONST_ANALYSE)
       {
-        // delete mesh;
-        // mesh = make_shared<Mesh>();
+         delete mesh;
+         mesh = make_shared<Mesh>();
          mesh->geomtype = Mesh::GEOM_OCC;
          
          OCCSetLocalMeshSize(geom,*mesh);
