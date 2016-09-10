@@ -980,20 +980,25 @@ namespace netgen
 
    void OCCSetLocalMeshSize(OCCGeometry & geom, Mesh & mesh)
    {
+      std::cerr << "2.1" std::endl;
       mesh.SetGlobalH (mparam.maxh);
       mesh.SetMinimalH (mparam.minh);
 
+      std::cerr << "2.2" std::endl;
       Array<double> maxhdom;
       maxhdom.SetSize (geom.NrSolids());
       maxhdom = mparam.maxh;
 
       mesh.SetMaxHDomain (maxhdom);
 
+      std::cerr << "2.3" std::endl;
+
       Box<3> bb = geom.GetBoundingBox();
       bb.Increase (bb.Diam()/10);
 
       mesh.SetLocalH (bb.PMin(), bb.PMax(), 0.5);
 
+      std::cerr << "2.4" std::endl;
       if (mparam.uselocalh)
       {
          const char * savetask = multithread.task;
@@ -1013,6 +1018,7 @@ namespace netgen
 			if(mincurvelength < IGNORECURVELENGTH) mincurvelength = IGNORECURVELENGTH;
 		 }
 
+      std::cerr << "2.5" std::endl;
          multithread.task = "Setting local mesh size (elements per edge)";
 
          // setting elements per edge
@@ -1062,6 +1068,7 @@ namespace netgen
             maxedgelen = max (maxedgelen, len);
             minedgelen = min (minedgelen, len);
 
+            std::cerr << "2.6" std::endl;
             // Philippose - 23/01/2009
             // Modified the calculation of maxj, because the
             // method used so far always results in maxj = 2,
@@ -1210,6 +1217,7 @@ namespace netgen
                }
             }
 
+            std::cerr << "2.6" std::endl;
             Array<int> linenums;
 
             for (int i = 0; i < nlines; i++)
@@ -1257,6 +1265,7 @@ namespace netgen
 
       }
 
+      std::cerr << "2.7" std::endl;
       // Philippose - 09/03/2009
       // Added the capability to load the mesh size from a 
       // file also for OpenCascade Geometry
