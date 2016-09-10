@@ -1277,7 +1277,7 @@ namespace netgen
 		       int perfstepsstart, int perfstepsend)
    {
       multithread.percent = 0;
-
+      std::cerr << "1.1" << std::endl;
       if (perfstepsstart <= MESHCONST_ANALYSE)
       {
         // delete mesh;
@@ -1287,6 +1287,7 @@ namespace netgen
          OCCSetLocalMeshSize(geom,*mesh);
       }
 
+      std::cerr << "1.2" << std::endl;
       if (multithread.terminate || perfstepsend <= MESHCONST_ANALYSE)
          return TCL_OK;
 
@@ -1360,6 +1361,7 @@ namespace netgen
 #endif
       }
 
+      std::cerr << "1.3" << std::endl;
       if (multithread.terminate || perfstepsend <= MESHCONST_MESHEDGES)
          return TCL_OK;
 
@@ -1380,6 +1382,7 @@ namespace netgen
             << GetTime() << " & " << endl;
 #endif
 
+      std::cerr << "1.4" << std::endl;
          //      MeshQuality2d (*mesh);
          mesh->CalcSurfacesOfNode();
       }
@@ -1451,6 +1454,8 @@ namespace netgen
          // cout << "Optimization complete" << endl;
 
       }
+
+      std::cerr << "1.5" << std::endl;
 
       (*testout) << "NP: " << mesh->GetNP() << endl;
       for (int i = 1; i <= mesh->GetNP(); i++)
