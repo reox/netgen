@@ -56,17 +56,18 @@ if(APPLE)
 
 elseif(WIN32)
 
-  ExternalProject_Add(project_win_extlibs
-    URL ${EXT_LIBS_DOWNLOAD_URL_WIN}
-    UPDATE_COMMAND "" # Disable update
-    BUILD_IN_SOURCE 1
-    CONFIGURE_COMMAND ""
-    BUILD_COMMAND ""
-    INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_directory . ${INSTALL_DIR}
-    LOG_DOWNLOAD 1
-    )
+  # ExternalProject_Add(project_win_extlibs
+  #   URL ${EXT_LIBS_DOWNLOAD_URL_WIN}
+  #   UPDATE_COMMAND "" # Disable update
+  #   BUILD_IN_SOURCE 1
+  #   CONFIGURE_COMMAND ""
+  #   BUILD_COMMAND ""
+  #   INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_directory . ${INSTALL_DIR}
+  #   LOG_DOWNLOAD 1
+  #   )
 
-  list(APPEND NETGEN_DEPENDENCIES project_win_extlibs)
+  # list(APPEND NETGEN_DEPENDENCIES project_win_extlibs)
+    find_package(TCL 8.5 REQUIRED)
 else(WIN32)
     find_package(TCL 8.5 REQUIRED)
 endif(APPLE)
