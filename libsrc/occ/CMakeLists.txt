@@ -7,7 +7,7 @@ add_library(occ ${NG_LIB_TYPE}
 
 if(USE_GUI)
     add_library(occvis ${NG_LIB_TYPE} vsocc.cpp)
-endif(USE_GUI)cvis ${NG_LIB_TYPE} vsocc.cpp)
+endif(USE_GUI)
 
 if(NOT WIN32)
     target_link_libraries( occ ${OCC_LIBRARIES} ${PYTHON_LIBRARIES})
