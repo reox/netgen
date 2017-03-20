@@ -15,6 +15,7 @@ if(NOT WIN32)
     if (USE_GUI)
         target_link_libraries( occvis occ )
         install( TARGETS occvis ${ng_install_dir})
+    endif (USE_GUI)
 endif(NOT WIN32)
 
 install(FILES
