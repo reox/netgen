@@ -12,12 +12,13 @@ if(WIN32)
           $<TARGET_OBJECTS:la>
           $<TARGET_OBJECTS:gprim>
           $<TARGET_OBJECTS:occ>
+
+          $<TARGET_OBJECTS:visual>
        )
     if (USE_GUI)
         set(nglib_objects 
           $<TARGET_OBJECTS:stlvis>
           $<TARGET_OBJECTS:geom2dvis>
-          $<TARGET_OBJECTS:visual>
           $<TARGET_OBJECTS:csgvis>
        )
     endif(USE_GUI)
