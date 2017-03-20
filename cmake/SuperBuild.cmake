@@ -86,25 +86,25 @@ endif (USE_PYTHON)
 
 #######################################################################
 
-if(USE_OCC AND WIN32 AND NOT OCC_INCLUDE_DIR)
-    ExternalProject_Add(win_download_occ
-      PREFIX ${CMAKE_CURRENT_BINARY_DIR}/tcl
-      URL ${OCC_DOWNLOAD_URL_WIN}
-      UPDATE_COMMAND "" # Disable update
-      BUILD_IN_SOURCE 1
-      CONFIGURE_COMMAND ""
-      BUILD_COMMAND ""
-      INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_directory . ${INSTALL_DIR}
-      LOG_DOWNLOAD 1
-      )
-    list(APPEND NETGEN_DEPENDENCIES win_download_occ)
-endif(USE_OCC AND WIN32 AND NOT OCC_INCLUDE_DIR)
+# if(USE_OCC AND WIN32 AND NOT OCC_INCLUDE_DIR)
+#     ExternalProject_Add(win_download_occ
+#       PREFIX ${CMAKE_CURRENT_BINARY_DIR}/tcl
+#       URL ${OCC_DOWNLOAD_URL_WIN}
+#       UPDATE_COMMAND "" # Disable update
+#       BUILD_IN_SOURCE 1
+#       CONFIGURE_COMMAND ""
+#       BUILD_COMMAND ""
+#       INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_directory . ${INSTALL_DIR}
+#       LOG_DOWNLOAD 1
+#       )
+#     list(APPEND NETGEN_DEPENDENCIES win_download_occ)
+# endif(USE_OCC AND WIN32 AND NOT OCC_INCLUDE_DIR)
 
-#######################################################################
+# #######################################################################
 
-if(USE_GUI)
-  include(cmake/external_projects/tcltk.cmake)
-endif(USE_GUI)
+# if(USE_GUI)
+#   include(cmake/external_projects/tcltk.cmake)
+# endif(USE_GUI)
 
 #######################################################################
 if(USE_MPI)
