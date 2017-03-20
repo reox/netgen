@@ -3,9 +3,7 @@ add_definitions(-DNGLIB_EXPORTS)
 if(WIN32)
     set(nglib_objects 
           $<TARGET_OBJECTS:mesh>
-          $<TARGET_OBJECTS:stlvis>
           $<TARGET_OBJECTS:stl>
-          $<TARGET_OBJECTS:geom2dvis>
           $<TARGET_OBJECTS:interface>
           $<TARGET_OBJECTS:geom2d>
           $<TARGET_OBJECTS:csg>
@@ -13,10 +11,14 @@ if(WIN32)
           $<TARGET_OBJECTS:gen>
           $<TARGET_OBJECTS:la>
           $<TARGET_OBJECTS:gprim>
-
+          $<TARGET_OBJECTS:occ>
+       )
+    if (USE_GUI)
+        set(nglib_objects 
+          $<TARGET_OBJECTS:stlvis>
+          $<TARGET_OBJECTS:geom2dvis>
           $<TARGET_OBJECTS:visual>
           $<TARGET_OBJECTS:csgvis>
-          $<TARGET_OBJECTS:occ>
        )
 endif(WIN32)
 
