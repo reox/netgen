@@ -20,6 +20,7 @@ if(WIN32)
           $<TARGET_OBJECTS:visual>
           $<TARGET_OBJECTS:csgvis>
        )
+    endif(USE_GUI)
 endif(WIN32)
 
 add_library(nglib SHARED nglib.cpp ${nglib_objects})
