@@ -11,17 +11,17 @@ if(WIN32)
           $<TARGET_OBJECTS:gen>
           $<TARGET_OBJECTS:la>
           $<TARGET_OBJECTS:gprim>
+          $<TARGET_OBJECTS:occ>
 
           $<TARGET_OBJECTS:visual>
-          $<TARGET_OBJECTS:occ>
        )
-       if(USE_GUI)
-           set(nglib_objects ${nglib_objects}
-	       $<TARGET_OBJECTS:stlvis>
-	       $<TARGET_OBJECTS:geom2dvis>
-               $<TARGET_OBJECTS:csgvis>
-           )
-       endif(USE_GUI)
+    if (USE_GUI)
+        set(nglib_objects 
+          $<TARGET_OBJECTS:stlvis>
+          $<TARGET_OBJECTS:geom2dvis>
+          $<TARGET_OBJECTS:csgvis>
+       )
+    endif(USE_GUI)
 endif(WIN32)
 
 add_library(nglib SHARED nglib.cpp ${nglib_objects})
