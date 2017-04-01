@@ -5,12 +5,17 @@ add_library(occ ${NG_LIB_TYPE}
         occconstruction.cpp occgenmesh.cpp occgeom.cpp occmeshsurf.cpp
         )
 
-add_library(occvis ${NG_LIB_TYPE} vsocc.cpp)
+if(USE_GUI)
+    add_library(occvis ${NG_LIB_TYPE} vsocc.cpp)
+endif(USE_GUI)
 
 if(NOT WIN32)
     target_link_libraries( occ ${OCC_LIBRARIES} ${PYTHON_LIBRARIES})
-    target_link_libraries( occvis occ )
-    install( TARGETS occ occvis ${ng_install_dir})
+    install( TARGETS occ ${ng_install_dir})
+    if (USE_GUI)
+        target_link_libraries( occvis occ )
+        install( TARGETS occvis ${ng_install_dir})
+    endif (USE_GUI)
 endif(NOT WIN32)
 
 install(FILES
