@@ -31,7 +31,7 @@ if(USE_PYTHON)
         set_target_properties( ngpy PROPERTIES SUFFIX ".pyd")
         set_target_properties( ngpy PROPERTIES OUTPUT_NAME "libngpy")
     endif()
-    install(TARGETS ngpy ${ng_install_dir})
+    install(TARGETS ngpy ${PYTHON_PACKAGES_INSTALL_DIR}/netgen)
 endif(USE_PYTHON)
 
 if(USE_GUI)
