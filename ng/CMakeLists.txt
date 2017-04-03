@@ -64,7 +64,7 @@ if(USE_PYTHON)
         set_target_properties( ngpy PROPERTIES SUFFIX ".pyd")
         set_target_properties( ngpy PROPERTIES OUTPUT_NAME "libngpy")
     endif()
-    set_target_properties(ngpy PROPERTIES INSTALL_RPATH "${NG_RPATH_TOKEN}/../${NETGEN_PYTHON_RPATH}")
+    install(TARGETS ngpy ${PYTHON_PACKAGES_INSTALL_DIR}/netgen)
     install(TARGETS ngpy DESTINATION ${NG_INSTALL_DIR_PYTHON}/${NG_INSTALL_SUFFIX} COMPONENT netgen)
 endif(USE_PYTHON)
 
