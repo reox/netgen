@@ -1,6 +1,6 @@
-import libngpy
-from libngpy._stl import *
-from libngpy._meshing import MeshingParameters
+import netgen.libngpy
+from netgen.libngpy._stl import *
+from netgen.libngpy._meshing import MeshingParameters
 
 
 def stl_meshing_func (geom, **args):

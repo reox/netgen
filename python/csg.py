@@ -1,13 +1,13 @@
-import libngpy
-from libngpy._csg import *
-from libngpy._meshing import MeshingParameters
-from libngpy._meshing import Pnt
-from libngpy._meshing import Vec
+import netgen.libngpy
+from netgen.libngpy._csg import *
+from netgen.libngpy._meshing import MeshingParameters
+from netgen.libngpy._meshing import Pnt
+from netgen.libngpy._meshing import Vec
 
 
 try:
     import libngpy.csgvis as csgvis
-    from libngpy.csgvis import MouseMove
+    from netgen.libngpy.csgvis import MouseMove
     CSGeometry.VS = csgvis.VS
     SetBackGroundColor = csgvis.SetBackGroundColor
     del csgvis
