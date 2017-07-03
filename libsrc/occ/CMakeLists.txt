@@ -11,10 +11,10 @@ endif(USE_GUI)
 
 if(NOT WIN32)
     target_link_libraries( occ ${OCC_LIBRARIES} ${PYTHON_LIBRARIES})
-    install( TARGETS occ ${ng_install_dir})
+    install( TARGETS occ DESTINATION ${NG_INSTALL_DIR})
     if (USE_GUI)
         target_link_libraries( occvis occ )
-        install( TARGETS occvis ${NG_INSTALL_DIR})
+        install( TARGETS occvis DESTINATION ${NG_INSTALL_DIR})
     endif (USE_GUI)
 endif(NOT WIN32)
 
