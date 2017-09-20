@@ -43,8 +43,8 @@ if(USE_GUI)
       target_link_libraries( gui PUBLIC mesh stlvis stl geom2dvis interface geom2d csg stl visual csgvis )
     endif(NOT WIN32)
 
-    install(TARGETS netgen DESTINATION ${ng_install_dir})
-    install(TARGETS gui ${NG_INSTALL_DIR})
+    install(TARGETS netgen DESTINATION ${NG_INSTALL_DIR})
+    install(TARGETS gui DESTINATION ${NG_INSTALL_DIR})
 
     if(APPLE)
         set_target_properties(netgen PROPERTIES OUTPUT_NAME netgen)
