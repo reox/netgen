@@ -2325,7 +2325,7 @@ void Ng_GetArgs (int & argc, char ** &argv)
 
 void LinkFunction ()
 {
-  Ng_Redraw();
+  Ng_Redraw(false);
 }
 
 
