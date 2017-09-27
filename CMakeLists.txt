@@ -313,7 +313,7 @@ if(INSTALL_PROFILES)
 endif(INSTALL_PROFILES)
 
 #######################################################################
-file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/fixup.cmake "\
+file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/fixup.cmake "\)
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/netgen_fixup.cmake)
 set(APP ${CMAKE_INSTALL_PREFIX})
 message(\${APP})
@@ -362,9 +362,11 @@ if(UNIX)
     set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "automatic 3d tetrahedral mesh generator")
     set(CPACK_PACKAGE_DESCRIPTION "NETGEN is an automatic 3d tetrahedral mesh generator. It accepts input from constructive solid geometry (CSG) or boundary representation (BRep) from STL file format. The connection to a geometry kernel allows the handling of IGES and STEP files. NETGEN contains modules for mesh optimization and hierarchical mesh refinement. Netgen is open source based on the LGPL license. It is available for Unix/Linux and Windows.")
 
-    set(CPACK_PACKAGING_INSTALL_PREFIX "/opt/netgen")
+    # set(CPACK_PACKAGING_INSTALL_PREFIX "/opt/netgen")
     execute_process(COMMAND grep CODENAME /etc/lsb-release OUTPUT_VARIABLE temp OUTPUT_STRIP_TRAILING_WHITESPACE)
     execute_process(COMMAND dpkg --print-architecture OUTPUT_VARIABLE CPACK_DEBIAN_PACKAGE_ARCHITECTURE OUTPUT_STRIP_TRAILING_WHITESPACE)
+
+
     if(temp)
         set(CPACK_GENERATOR "DEB")
         string(SUBSTRING ${temp} 17 -1 UBUNTU_VERSION)
@@ -378,11 +380,13 @@ if(UNIX)
             set(CPACK_PACKAGE_NAME "${CPACK_PACKAGE_NAME}_mpi")
         endif(USE_MPI)
         if(USE_OCC)
-            set(CPACK_DEBIAN_PACKAGE_DEPENDS "${CPACK_DEBIAN_PACKAGE_DEPENDS}, liboce-ocaf-dev")
+            set(CPACK_DEBIAN_PACKAGE_DEPENDS "${CPACK_DEBIAN_PACKAGE_DEPENDS}, libopencascade-foundation-7.1.0")
+            set(CPACK_DEBIAN_PACKAGE_DEPENDS "${CPACK_DEBIAN_PACKAGE_DEPENDS}, libopencascade-modeling-algorithms-7.1.0")
+            set(CPACK_DEBIAN_PACKAGE_DEPENDS "${CPACK_DEBIAN_PACKAGE_DEPENDS}, libopencascade-modeling-data-7.1.0")
         endif(USE_OCC)
         set(CPACK_DEBIAN_PACKAGE_SECTION Science)
         set(CPACK_DEBIAN_PACKAGE_NAME ${CPACK_PACKAGE_NAME})
-        set(CPACK_PACKAGE_FILE_NAME "netgen-${PACKAGE_VERSION}_${CPACK_DEBIAN_PACKAGE_ARCHITECTURE}")   
+        set(CPACK_PACKAGE_FILE_NAME "netgen-${PACKAGE_VERSION}_${CPACK_DEBIAN_PACKAGE_ARCHITECTURE}_${UBUNTU_VERSION}")   
     endif(temp)
 endif(UNIX)
 
