@@ -1,0 +1,5 @@
+debian/.debhelper/
+debian/files
+debian/netgen.substvars
+debian/netgen/
+obj-x86_64-linux-gnu/
